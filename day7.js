@@ -1,3 +1,4 @@
+const { dir } = require('console');
 const fs = require('fs');
 const input = fs.readFileSync('./day7input.txt', 'utf8').split('\n');
 let currentDirectory = [];
@@ -53,16 +54,18 @@ for(let i = 0; i < input.length; i++) {
     }
 }
 
-// When we have our filesystem built from the input commands,
-// we can loop over the cache and sum the size of each directory thats small enough.
-let sum = 0;
+// Part 2 Runner Code.
+const totalSpace = 70000000
+const neededUnusedSpace = 30000000;
+currentDirectory = ['/'];
+const neededSpace = neededUnusedSpace - (totalSpace - sizeOfDirectory(cache['/']));
 currentDirectory = [];
+let min = Infinity;
 for(let key in cache) {
     currentDirectory.push(key);
     let dirSize = sizeOfDirectory(cache[key]);
-    if (dirSize <= 100000) {
-        sum += dirSize;
+    if (dirSize >= neededSpace && dirSize < min) {
+        min = dirSize;
     }
 }
-// console.log(cache);
-console.log(sum);
+console.log(min);
