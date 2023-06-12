@@ -1,4 +1,3 @@
-const { dir } = require('console');
 const fs = require('fs');
 const input = fs.readFileSync('./day7input.txt', 'utf8').split('\n');
 let currentDirectory = [];
