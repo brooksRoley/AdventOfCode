@@ -17,7 +17,7 @@ class Head {
         let xd = Math.abs(this.x - this.Tail.x);
         let yd = Math.abs(this.y - this.Tail.y);
         if(xd > 1 || yd > 1) {
-            // console.log(x, y);
+            console.log(x, y);
             this.Tail.addMap();
             this.Tail.x = x;
             this.Tail.y = y;
@@ -48,7 +48,7 @@ class Tail {
 const snake = new Head();
 for(let i=0; i<input.length; i++){
     let [dir, n] = input[i].split(' ');
-    // console.log(dir, n);
+    console.log(dir, n);
     snake.move(dir, n);
 }
 snake.Tail.addMap();
